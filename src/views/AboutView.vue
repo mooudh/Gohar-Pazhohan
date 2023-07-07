@@ -61,10 +61,11 @@ export default {
 
   methods: {
     fetch() {
+      const Auth = import.meta.env.VITE_token;
+
       fetch("https://goharp-task1.iran.liara.run/employee", {
         headers: {
-          Authorization:
-            "Bearer mooud-hoseini-61162158-1dc3-489d-890e-864556e58b4d",
+          Authorization: `Bearer ${Auth}`,
         },
       })
         .then((data) => data.json())
@@ -79,11 +80,11 @@ export default {
     },
 
     showModal(id) {
+      const Auth = import.meta.env.VITE_token;
       this.isModalVisible = true;
       fetch(`https://goharp-task1.iran.liara.run/employee/${id}`, {
         headers: {
-          Authorization:
-            "Bearer mooud-hoseini-61162158-1dc3-489d-890e-864556e58b4d",
+          Authorization: `Bearer ${Auth}`,
         },
       })
         .then((data) => data.json())

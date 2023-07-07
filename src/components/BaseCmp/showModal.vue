@@ -98,12 +98,13 @@ export default {
         dateOfBirth: dateOfBirth,
         family: familyArray,
       };
+
+      const Auth = import.meta.env.VITE_token;
       fetch(
         `https://goharp-task1.iran.liara.run/employee/${this.oneEmployee.id}`,
         {
           headers: {
-            Authorization:
-              "Bearer mooud-hoseini-61162158-1dc3-489d-890e-864556e58b4d",
+            Authorization: `Bearer ${Auth}`,
           },
           method: "PUT",
           body: this.Employee,
