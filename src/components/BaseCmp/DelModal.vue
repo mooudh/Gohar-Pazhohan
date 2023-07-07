@@ -1,14 +1,16 @@
 <template>
   <div class="text-center">
-    <v-btn color="secondary" @click="dialog = true"> افزودن کارمند </v-btn>
+    <v-dialog v-model="dialog" width="auto">
+      <template v-slot:activator="{ props }">
+        <v-btn color="secondary" v-bind="props"> افزودن کارمند </v-btn>
+      </template>
 
-    <v-dialog v-model="dialog" width="800">
       <v-card>
         <v-card-text>
-          <member></member>
+          <member />
         </v-card-text>
         <v-card-actions>
-          <v-btn color="secondary" block @click="dialog = false"
+          <v-btn color="primary" block @click="dialog = false"
             >Close Dialog</v-btn
           >
         </v-card-actions>
@@ -18,6 +20,7 @@
 </template>
 <script>
 import Member from "./Member.vue";
+
 export default {
   components: {
     Member,
